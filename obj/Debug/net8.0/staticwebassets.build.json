@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "RSnRpTZ9LpNcXUTKunHGOiDJ6Zx2WiTYjUpDyvblrxQ=",
+  "Source": "hello-aspnet-api",
+  "BasePath": "_content/hello-aspnet-api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
