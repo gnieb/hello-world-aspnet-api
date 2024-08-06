@@ -1,6 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
+// GET METHOD
+
 app.MapGet("/", () => "Hello World!");
 
 app.MapGet("/ping", () => "pong");
@@ -23,6 +25,13 @@ app.MapGet("/orders/{id}", (int id, string option) => {
     });
 
 // combine query parameter and path parameter 
+
+// POST METHODS
+
+app.MapPost("/customers", () =>  " i will create a customer for you");
+// how can we test? RestClient!
+
+
 
 
 app.Run();
