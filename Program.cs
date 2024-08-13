@@ -28,13 +28,18 @@ app.MapGet("/orders/{id}", (int id, string option) => {
 
 // POST METHODS
 
-app.MapPost("/customers", () =>  " i will create a customer for you");
+app.MapPost("/customers", (Customer c) =>  
+$"i will create a customer {c.Name} for you");
 // how can we test? RestClient!
 
 
 
 
 app.Run();
+record Customer(string Name, string Company, int Age);
+// this is like making a class
+// if in program cs file, records have to be at the end of the file.
+// when the app gets bigger, we would move these out into their own file.
 
 
 // hello world
