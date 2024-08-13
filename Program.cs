@@ -14,9 +14,11 @@ app.MapGet("/hello", (string name) => $"hello {name}");
 // a '%' is a space!
 
 
-app.MapGet("/customers/{id}", (int id) => $"Customer {id}");
+app.MapGet("/customers/{id}", (int id) => 
+    Results.Ok(new Customer("Grace", "Wilmac", 28)));
+    // this will mreturn the 200 status code because i said so lol
 // path parameter
-// // example: localhost:8000/customer/999 => returns Customer 999
+
 
 
 app.MapGet("/orders/{id}", (int id, string option) => {
@@ -33,6 +35,10 @@ $"i will create a customer {c.Name} for you");
 // how can we test? RestClient!
 
 
+app.MapGet("/iamhappy", () => Results.Ok());
+app.MapGet("/iamunhappy", () => Results.BadRequest());
+app.MapGet("/iamunhappyandwilltelluwhy", () => Results.BadRequest("because it's friday"));
+
 
 
 app.Run();
@@ -41,5 +47,3 @@ record Customer(string Name, string Company, int Age);
 // if in program cs file, records have to be at the end of the file.
 // when the app gets bigger, we would move these out into their own file.
 
-
-// hello world
