@@ -1,11 +1,15 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-// GET METHOD
+// handler functions
+
+
+// GET
 
 app.MapGet("/", () => "Hello World!");
 
-app.MapGet("/ping", () => "pong");
+app.MapGet("/amazing", MyName);
+// take out the anaymous ?lambda? function piece, and just pass the abstracted function reference
 
 app.MapGet("/hello", (string name) => $"hello {name}");
 // where does the name var come from?? 
@@ -42,6 +46,16 @@ app.MapGet("/iamunhappyandwilltelluwhy", () => Results.BadRequest("because it's 
 
 
 app.Run();
+
+// in C#, it appears that the type of the function is determined by the type of return value that a function will give.
+
+ string MyName()
+ {
+    return "grace";
+ }
+//  now I can use this in the ping pong MapGet route. I abstracted the lambda function.
+
+
 record Customer(string Name, string Company, int Age);
 // this is like making a class
 // if in program cs file, records have to be at the end of the file.
