@@ -8,7 +8,7 @@ var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
 
-app.MapGet("/amazing", MyName);
+app.MapGet("/amazing", HelloAspNetCore.Handlers.MyName);
 // take out the anaymous ?lambda? function piece, and just pass the abstracted function reference
 
 app.MapGet("/hello", (string name) => $"hello {name}");
@@ -47,13 +47,6 @@ app.MapGet("/iamunhappyandwilltelluwhy", () => Results.BadRequest("because it's 
 
 app.Run();
 
-// in C#, it appears that the type of the function is determined by the type of return value that a function will give.
-
- string MyName()
- {
-    return "grace";
- }
-//  now I can use this in the ping pong MapGet route. I abstracted the lambda function.
 
 
 record Customer(string Name, string Company, int Age);
